@@ -24,15 +24,16 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(mapthai)
-library(leaflet)
+library(sf)
 
 # basic example code
-plot(th2) 
+plot(th2[, c('adm2_pcode', 'adm1_pcode')]) 
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
 
 ``` r
+# library(leaflet)
 # leaflet(th2) %>%
 #  addProviderTiles(providers$CartoDB.DarkMatter) %>%
 #  addPolygons(color = "white", weight = 1)
