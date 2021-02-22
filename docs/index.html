@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">mapthai</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -59,37 +59,1184 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
+
 <div id="mapthai" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#mapthai" class="anchor"></a>mapthai</h1></div>
-<!-- badges: start -->
-<!-- badges: end -->
-<p>The goal of mapthai is to provide mapdata of Thailand and world in geojson and rda (<code>sf</code>) format.</p>
+<p>An R package storing the ligtweight geospatial polygon data of Thailand administrative level 1-3 including province (Changwat), district (Amphoe) and subdistrict (Tambon) in geojson and rda (<code>sf</code> class) format.</p>
+<p><strong>Notes:</strong> - Thailand maps are downloaded from <a href="https://data.humdata.org/dataset/thailand-administrative-boundaries">UNOCHA</a></p>
+<ul>
+<li>Source: Royal Thai Survey Department update 6 November 2019 - Maps are simplified using <a href="https://mapshaper.org">mapshaper</a> - Import Options : detect line intersections - Simplification menu : check prevent shape removal - Method : Visvalingam / effective area</li>
+</ul>
+</div>
+<div id="แผนที่ไทยและโลก" class="section level1">
+<h1 class="hasAnchor">
+<a href="#%E0%B9%81%E0%B8%9C%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%84%E0%B8%97%E0%B8%A2%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%82%E0%B8%A5%E0%B8%81" class="anchor"></a>แผนที่ไทยและโลก</h1>
+<p>R package ที่มีไฟล์แผนที่ขนาดเล็กของไทย เหมาะสำหรับการทำ data visualization มีไฟล์ทั้ง geojson และ rda (ในรูปแบบ class <code>sf</code>) โดยแผนที่ไทยมี 3 ระดับ ได้แก่ จังหวัด อำเภอ และตำบล</p>
+<p><strong>หมายเหตุ:</strong> - แผนที่ไทยโหลดมาจาก <a href="https://data.humdata.org/dataset/thailand-administrative-boundaries">UNOCHA</a></p>
+<ul>
+<li>แหล่งข้อมูล: กรมแผนที่ทหาร เมื่อวันที่ 6 พ.ย. 2562 - ลดขนาดของแผนที่ (simplify) ด้วย webtool ที่ชื่อ <a href="https://mapshaper.org">mapshaper</a> โดยเลือกปรับแต่งค่าต่าง ๆ ดังนี้ - Import Options : detect line intersections - Simplification menu : check prevent shape removal - Method : Visvalingam / effective area</li>
+</ul>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of mapthai from <a href="https://github.com/piyayut-ch">github</a> with:</p>
+<p>You can install the released version of mapthai from <a href="https://github.com/piyayut-ch/mapthai">github repo</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># remotes::install_github("piyayut-ch/mapdata")</span></code></pre></div>
+<code class="sourceCode R"><span class="co"># remotes::install_github("piyayut-ch/mapthai")</span></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<p>1 Plot map using plot method of <code>sf</code> class</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">mapthai</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span>
 
 <span class="co"># basic example code</span>
-<span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">th2</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'adm2_pcode'</span>, <span class="st">'adm1_pcode'</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> </code></pre></div>
+<span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">tha2</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'adm2_pcode'</span>, <span class="st">'adm1_pcode'</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> </code></pre></div>
 <p><img src="reference/figures/README-example-1.png" width="100%"></p>
+<p>2 Plot interactive plot using leaflet</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># library(leaflet)</span>
-<span class="co"># leaflet(th2) %&gt;%</span>
+<span class="co"># leaflet(tha2) %&gt;%</span>
 <span class="co">#  addProviderTiles(providers$CartoDB.DarkMatter) %&gt;%</span>
 <span class="co">#  addPolygons(color = "white", weight = 1)</span></code></pre></div>
+<p>3 Reference table</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/gt">gt</a></span><span class="op">)</span>
+
+<span class="va">ref_tha</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/gt/man/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/gt/man/tab_options.html">tab_options</a></span><span class="op">(</span>table.font.size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/gt/man/px.html">px</a></span><span class="op">(</span><span class="fl">14</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#czmpgvfdvd .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#czmpgvfdvd .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#czmpgvfdvd .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#czmpgvfdvd .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#czmpgvfdvd .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#czmpgvfdvd .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#czmpgvfdvd .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#czmpgvfdvd .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#czmpgvfdvd .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#czmpgvfdvd .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#czmpgvfdvd .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#czmpgvfdvd .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#czmpgvfdvd .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#czmpgvfdvd .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#czmpgvfdvd .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#czmpgvfdvd .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#czmpgvfdvd .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#czmpgvfdvd .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#czmpgvfdvd .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#czmpgvfdvd .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#czmpgvfdvd .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#czmpgvfdvd .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#czmpgvfdvd .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#czmpgvfdvd .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#czmpgvfdvd .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#czmpgvfdvd .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#czmpgvfdvd .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#czmpgvfdvd .gt_left {
+  text-align: left;
+}
+
+#czmpgvfdvd .gt_center {
+  text-align: center;
+}
+
+#czmpgvfdvd .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#czmpgvfdvd .gt_font_normal {
+  font-weight: normal;
+}
+
+#czmpgvfdvd .gt_font_bold {
+  font-weight: bold;
+}
+
+#czmpgvfdvd .gt_font_italic {
+  font-style: italic;
+}
+
+#czmpgvfdvd .gt_super {
+  font-size: 65%;
+}
+
+#czmpgvfdvd .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="czmpgvfdvd" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<table class="table gt_table">
+<thead class="gt_col_headings"><tr>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm3_pcode
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm3_en
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm3_th
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm2_pcode
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm2_en
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm2_th
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm1_pcode
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm1_en
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm1_th
+</th>
+</tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left">
+TH420803
+</td>
+<td class="gt_row gt_left">
+A Hi
+</td>
+<td class="gt_row gt_left">
+อาฮี
+</td>
+<td class="gt_row gt_left">
+TH4208
+</td>
+<td class="gt_row gt_left">
+Tha Li
+</td>
+<td class="gt_row gt_left">
+ท่าลี่
+</td>
+<td class="gt_row gt_left">
+TH42
+</td>
+<td class="gt_row gt_left">
+Loei
+</td>
+<td class="gt_row gt_left">
+เลย
+</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">
+TH940102
+</td>
+<td class="gt_row gt_left">
+A Noru
+</td>
+<td class="gt_row gt_left">
+อาเนาะรู
+</td>
+<td class="gt_row gt_left">
+TH9401
+</td>
+<td class="gt_row gt_left">
+Mueang Pattani
+</td>
+<td class="gt_row gt_left">
+เมืองปัตตานี
+</td>
+<td class="gt_row gt_left">
+TH94
+</td>
+<td class="gt_row gt_left">
+Pattani
+</td>
+<td class="gt_row gt_left">
+ปัตตานี
+</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">
+TH321305
+</td>
+<td class="gt_row gt_left">
+A Phon
+</td>
+<td class="gt_row gt_left">
+อาโพน
+</td>
+<td class="gt_row gt_left">
+TH3213
+</td>
+<td class="gt_row gt_left">
+Buachet
+</td>
+<td class="gt_row gt_left">
+บัวเชด
+</td>
+<td class="gt_row gt_left">
+TH32
+</td>
+<td class="gt_row gt_left">
+Surin
+</td>
+<td class="gt_row gt_left">
+สุรินทร์
+</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">
+TH950615
+</td>
+<td class="gt_row gt_left">
+A Song
+</td>
+<td class="gt_row gt_left">
+อาซ่อง
+</td>
+<td class="gt_row gt_left">
+TH9506
+</td>
+<td class="gt_row gt_left">
+Raman
+</td>
+<td class="gt_row gt_left">
+รามัน
+</td>
+<td class="gt_row gt_left">
+TH95
+</td>
+<td class="gt_row gt_left">
+Yala
+</td>
+<td class="gt_row gt_left">
+ยะลา
+</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">
+TH550711
+</td>
+<td class="gt_row gt_left">
+Ai Na Lai
+</td>
+<td class="gt_row gt_left">
+อ่ายนาไลย
+</td>
+<td class="gt_row gt_left">
+TH5507
+</td>
+<td class="gt_row gt_left">
+Wiang Sa
+</td>
+<td class="gt_row gt_left">
+เวียงสา
+</td>
+<td class="gt_row gt_left">
+TH55
+</td>
+<td class="gt_row gt_left">
+Nan
+</td>
+<td class="gt_row gt_left">
+น่าน
+</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">
+TH950204
+</td>
+<td class="gt_row gt_left">
+Aiyoe Weng
+</td>
+<td class="gt_row gt_left">
+อัยเยอร์เวง
+</td>
+<td class="gt_row gt_left">
+TH9502
+</td>
+<td class="gt_row gt_left">
+Betong
+</td>
+<td class="gt_row gt_left">
+เบตง
+</td>
+<td class="gt_row gt_left">
+TH95
+</td>
+<td class="gt_row gt_left">
+Yala
+</td>
+<td class="gt_row gt_left">
+ยะลา
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ref_tha</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">adm2_pcode</span> <span class="op">==</span> <span class="st">"TH1015"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/gt/man/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/gt/man/tab_options.html">tab_options</a></span><span class="op">(</span>table.font.size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/gt/man/px.html">px</a></span><span class="op">(</span><span class="fl">14</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#gumjeylolj .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#gumjeylolj .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gumjeylolj .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#gumjeylolj .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#gumjeylolj .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gumjeylolj .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gumjeylolj .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#gumjeylolj .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#gumjeylolj .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#gumjeylolj .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#gumjeylolj .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#gumjeylolj .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#gumjeylolj .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#gumjeylolj .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#gumjeylolj .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#gumjeylolj .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#gumjeylolj .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#gumjeylolj .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gumjeylolj .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#gumjeylolj .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gumjeylolj .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#gumjeylolj .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#gumjeylolj .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gumjeylolj .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gumjeylolj .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#gumjeylolj .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gumjeylolj .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#gumjeylolj .gt_left {
+  text-align: left;
+}
+
+#gumjeylolj .gt_center {
+  text-align: center;
+}
+
+#gumjeylolj .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#gumjeylolj .gt_font_normal {
+  font-weight: normal;
+}
+
+#gumjeylolj .gt_font_bold {
+  font-weight: bold;
+}
+
+#gumjeylolj .gt_font_italic {
+  font-style: italic;
+}
+
+#gumjeylolj .gt_super {
+  font-size: 65%;
+}
+
+#gumjeylolj .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="gumjeylolj" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<table class="table gt_table">
+<thead class="gt_col_headings"><tr>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm3_pcode
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm3_en
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm3_th
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm2_pcode
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm2_en
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm2_th
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm1_pcode
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm1_en
+</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+adm1_th
+</th>
+</tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left">
+TH101503
+</td>
+<td class="gt_row gt_left">
+Bang Yi Ruea
+</td>
+<td class="gt_row gt_left">
+บางยี่เรือ
+</td>
+<td class="gt_row gt_left">
+TH1015
+</td>
+<td class="gt_row gt_left">
+Thon Buri
+</td>
+<td class="gt_row gt_left">
+ธนบุรี
+</td>
+<td class="gt_row gt_left">
+TH10
+</td>
+<td class="gt_row gt_left">
+Bangkok
+</td>
+<td class="gt_row gt_left">
+กรุงเทพมหานคร
+</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">
+TH101504
+</td>
+<td class="gt_row gt_left">
+Bukkhalo
+</td>
+<td class="gt_row gt_left">
+บุคคโล
+</td>
+<td class="gt_row gt_left">
+TH1015
+</td>
+<td class="gt_row gt_left">
+Thon Buri
+</td>
+<td class="gt_row gt_left">
+ธนบุรี
+</td>
+<td class="gt_row gt_left">
+TH10
+</td>
+<td class="gt_row gt_left">
+Bangkok
+</td>
+<td class="gt_row gt_left">
+กรุงเทพมหานคร
+</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">
+TH101506
+</td>
+<td class="gt_row gt_left">
+Dao Khanong
+</td>
+<td class="gt_row gt_left">
+ดาวคะนอง
+</td>
+<td class="gt_row gt_left">
+TH1015
+</td>
+<td class="gt_row gt_left">
+Thon Buri
+</td>
+<td class="gt_row gt_left">
+ธนบุรี
+</td>
+<td class="gt_row gt_left">
+TH10
+</td>
+<td class="gt_row gt_left">
+Bangkok
+</td>
+<td class="gt_row gt_left">
+กรุงเทพมหานคร
+</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">
+TH101502
+</td>
+<td class="gt_row gt_left">
+Hiranruchi
+</td>
+<td class="gt_row gt_left">
+หิรัญรูจี
+</td>
+<td class="gt_row gt_left">
+TH1015
+</td>
+<td class="gt_row gt_left">
+Thon Buri
+</td>
+<td class="gt_row gt_left">
+ธนบุรี
+</td>
+<td class="gt_row gt_left">
+TH10
+</td>
+<td class="gt_row gt_left">
+Bangkok
+</td>
+<td class="gt_row gt_left">
+กรุงเทพมหานคร
+</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">
+TH101507
+</td>
+<td class="gt_row gt_left">
+Samre
+</td>
+<td class="gt_row gt_left">
+สำเหร่
+</td>
+<td class="gt_row gt_left">
+TH1015
+</td>
+<td class="gt_row gt_left">
+Thon Buri
+</td>
+<td class="gt_row gt_left">
+ธนบุรี
+</td>
+<td class="gt_row gt_left">
+TH10
+</td>
+<td class="gt_row gt_left">
+Bangkok
+</td>
+<td class="gt_row gt_left">
+กรุงเทพมหานคร
+</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">
+TH101505
+</td>
+<td class="gt_row gt_left">
+Talat Phlu
+</td>
+<td class="gt_row gt_left">
+ตลาดพลู
+</td>
+<td class="gt_row gt_left">
+TH1015
+</td>
+<td class="gt_row gt_left">
+Thon Buri
+</td>
+<td class="gt_row gt_left">
+ธนบุรี
+</td>
+<td class="gt_row gt_left">
+TH10
+</td>
+<td class="gt_row gt_left">
+Bangkok
+</td>
+<td class="gt_row gt_left">
+กรุงเทพมหานคร
+</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">
+TH101501
+</td>
+<td class="gt_row gt_left">
+Wat Kanlaya
+</td>
+<td class="gt_row gt_left">
+วัดกัลยาณ์
+</td>
+<td class="gt_row gt_left">
+TH1015
+</td>
+<td class="gt_row gt_left">
+Thon Buri
+</td>
+<td class="gt_row gt_left">
+ธนบุรี
+</td>
+<td class="gt_row gt_left">
+TH10
+</td>
+<td class="gt_row gt_left">
+Bangkok
+</td>
+<td class="gt_row gt_left">
+กรุงเทพมหานคร
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
+</div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
