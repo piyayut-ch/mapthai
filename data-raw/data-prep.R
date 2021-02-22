@@ -39,3 +39,7 @@ ref_tha <- tha3 %>%
 ref_tha %>% write_xlsx("data-raw/ref/ref_tha.xlsx")
 
 usethis::use_data(tha3, tha2, tha1, ref_tha, overwrite = TRUE)
+
+rice_2562 <- read_excel("data-raw/rice_2562.xlsx")
+
+usethis::use_data(rice_2562, overwrite = TRUE)
