@@ -23,7 +23,7 @@ An R package storing the ligtweight geospatial polygon data of Thailand administ
   - Method : Visvalingam / effective area  
 
 
-# แผนที่ไทยและโลก
+# แผนที่ไทย
 R package ที่มีไฟล์แผนที่ขนาดเล็กของไทย เหมาะสำหรับการทำ data visualization มีไฟล์ทั้ง 
 geojson และ rda (ในรูปแบบ class `sf`) โดยแผนที่ไทยมี 3 ระดับ ได้แก่ จังหวัด อำเภอ และตำบล
 
@@ -57,11 +57,11 @@ plot(tha2[, c('adm2_pcode', 'adm1_pcode')])
 ```
 
 2 Plot interactive plot using leaflet
-```{r}
-# library(leaflet)
-# leaflet(tha2) %>%
-#  addProviderTiles(providers$CartoDB.DarkMatter) %>%
-#  addPolygons(color = "white", weight = 1)
+```{r, eval = FALSE}
+library(leaflet)
+leaflet(tha2) %>%
+  addProviderTiles(providers$CartoDB) %>%
+  addPolygons(color = "grey", weight = 1)
 ```
 
 3 Reference table
@@ -69,9 +69,9 @@ plot(tha2[, c('adm2_pcode', 'adm1_pcode')])
 library(dplyr)
 library(gt)
 
-ref_tha %>% 
-  head() %>% 
-  gt() %>% 
+ref_tha %>%
+  head() %>%
+  gt() %>%
   tab_options(table.font.size = px(14))
 ```
 
