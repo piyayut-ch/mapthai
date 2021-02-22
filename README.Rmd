@@ -2,8 +2,6 @@
 output: github_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -14,34 +12,61 @@ knitr::opts_chunk$set(
 ```
 
 # mapthai
+An R package storing the ligtweight geospatial polygon data of Thailand administrative level 1-3 including province (Changwat), district (Amphoe) and subdistrict (Tambon) in geojson and rda (`sf` class) format.
 
-<!-- badges: start -->
-<!-- badges: end -->
+**Notes:**
+- Thailand maps are downloaded from [UNOCHA](https://data.humdata.org/dataset/thailand-administrative-boundaries)
+- Source: Royal Thai Survey Department update 6 November 2019
+- Maps are simplified using [mapshaper](https://mapshaper.org)
+  - Import Options : detect line intersections
+  - Simplification menu : check prevent shape removal
+  - Method : Visvalingam / effective area  
+    
 
-The goal of mapthai is to provide mapdata of Thailand and world in geojson and rda (`sf`) format.
+# แผนที่ไทยและโลก
+R package ที่มีไฟล์แผนที่ขนาดเล็กของไทย เหมาะสำหรับการทำ data visualization มีไฟล์ทั้ง 
+geojson และ rda (ในรูปแบบ class `sf`) โดยแผนที่ไทยมี 3 ระดับ ได้แก่ จังหวัด อำเภอ และตำบล
+
+**หมายเหตุ:**
+- แผนที่ไทยโหลดมาจาก [UNOCHA](https://data.humdata.org/dataset/thailand-administrative-boundaries)
+- แหล่งข้อมูล: กรมแผนที่ทหาร เมื่อวันที่ 6 พ.ย. 2562
+- ลดขนาดของแผนที่ (simplify) ด้วย webtool ที่ชื่อ [mapshaper](https://mapshaper.org)
+  โดยเลือกปรับแต่งค่าต่าง ๆ ดังนี้
+  - Import Options : detect line intersections
+  - Simplification menu : check prevent shape removal
+  - Method : Visvalingam / effective area
 
 
 ## Installation
 
-You can install the released version of mapthai from [github](https://github.com/piyayut-ch) with:
+You can install the released version of mapthai from [github repo](https://github.com/piyayut-ch/mapthai) with:
 
 ``` r
-# remotes::install_github("piyayut-ch/mapdata")
+# remotes::install_github("piyayut-ch/mapthai")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
+1. Plot map using plot method of `sf` class
 ```{r example, dpi = 200}
 library(mapthai)
 library(sf)
 
 # basic example code
 plot(th2[, c('adm2_pcode', 'adm1_pcode')]) 
+```
 
+2. Plot interactive plot using leaflet
+```{r}
 # library(leaflet)
 # leaflet(th2) %>%
 #  addProviderTiles(providers$CartoDB.DarkMatter) %>%
 #  addPolygons(color = "white", weight = 1)
 ```
+
+3. Map data
+```{r}
+th1
+```
+
+
