@@ -12,29 +12,30 @@ knitr::opts_chunk$set(
 ```
 
 # mapthai
-An R package storing the ligtweight geospatial polygon data of Thailand administrative level 1-3 including province (Changwat), district (Amphoe) and subdistrict (Tambon) in geojson and rda (`sf` class) format.
+An R package storing the ligtweight geospatial polygon data of Thailand administrative level 1-3 including province (Changwat), district (Amphoe) and subdistrict (Tambon) in geojson and rda (`sf` class) format. Please see more details in [package website](https://piyayut-ch.github.io/mapthai/)
 
-**Notes:**
-- Thailand maps are downloaded from [UNOCHA](https://data.humdata.org/dataset/thailand-administrative-boundaries)
-- Source: Royal Thai Survey Department update 6 November 2019
-- Maps are simplified using [mapshaper](https://mapshaper.org)
-  - Import Options : detect line intersections
-  - Simplification menu : check prevent shape removal
-  - Method : Visvalingam / effective area  
+**Notes:**  
+- Thailand maps are downloaded from [UNOCHA](https://data.humdata.org/dataset/thailand-administrative-boundaries)  
+- Source: Royal Thai Survey Department update 6 November 2019   
+- Maps are simplified using [mapshaper](https://mapshaper.org)  
+  * Import Options : detect line intersections  
+  * Simplification menu : check prevent shape removal  
+  * Method : Visvalingam / effective area  
 
 
 # แผนที่ไทย
 R package ที่มีไฟล์แผนที่ขนาดเล็กของไทย เหมาะสำหรับการทำ data visualization มีไฟล์ทั้ง 
 geojson และ rda (ในรูปแบบ class `sf`) โดยแผนที่ไทยมี 3 ระดับ ได้แก่ จังหวัด อำเภอ และตำบล
+ดูรายละเอียดเพิ่มเติมได้ที่ [package website](https://piyayut-ch.github.io/mapthai/)
 
-**หมายเหตุ:**
-- แผนที่ไทยโหลดมาจาก [UNOCHA](https://data.humdata.org/dataset/thailand-administrative-boundaries)
-- แหล่งข้อมูล: กรมแผนที่ทหาร เมื่อวันที่ 6 พ.ย. 2562
-- ลดขนาดของแผนที่ (simplify) ด้วย webtool ที่ชื่อ [mapshaper](https://mapshaper.org)
-  โดยเลือกปรับแต่งค่าต่าง ๆ ดังนี้
-  - Import Options : detect line intersections
-  - Simplification menu : check prevent shape removal
-  - Method : Visvalingam / effective area
+**หมายเหตุ:**  
+- แผนที่ไทยโหลดมาจาก [UNOCHA](https://data.humdata.org/dataset/thailand-administrative-boundaries)  
+- แหล่งข้อมูล: กรมแผนที่ทหาร เมื่อวันที่ 6 พ.ย. 2562  
+- ลดขนาดของแผนที่ (simplify) ด้วย webtool ที่ชื่อ [mapshaper](https://mapshaper.org)  
+  โดยเลือกปรับแต่งค่าต่าง ๆ ดังนี้  
+  * Import Options : detect line intersections  
+  * Simplification menu : check prevent shape removal  
+  * Method : Visvalingam / effective area  
 
 
 ## Installation
@@ -70,16 +71,12 @@ library(dplyr)
 library(gt)
 
 ref_tha %>%
-  head() %>%
-  gt() %>%
-  tab_options(table.font.size = px(14))
+  head()
 ```
 
 ```{r}
 ref_tha %>% 
-  filter(adm2_pcode == "TH1015") %>% 
-  gt() %>%
-  tab_options(table.font.size = px(14))
+  filter(adm2_pcode == "TH1015")
 ```
 
 ### 4. Join `sf` object with data and plot
