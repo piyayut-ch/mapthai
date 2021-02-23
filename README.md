@@ -1,7 +1,7 @@
 
 # mapthai
 
-An R package storing the ligtweight geospatial polygon data of Thailand
+An R package storing ligtweight geospatial polygon data of Thailand
 administrative level 1-3 including province (Changwat), district
 (Amphoe) and subdistrict (Tambon) in geojson and rda (`sf` class)
 format. Please see more details in [package

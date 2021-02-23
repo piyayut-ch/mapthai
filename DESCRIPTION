@@ -1,5 +1,5 @@
 Package: mapthai
-Title: What the Package Does (One Line, Title Case)
+Title: An R package storing ligtweight polygon data of Thailand.
 Version: 0.1.0
 Authors@R: 
     person(given = "Piyayut",
@@ -8,6 +8,9 @@ Authors@R:
            email = "piyayut.ch@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
+URL: 
+  https://piyayut-ch.github.io/mapthai,
+  https://github.com/piyayut-ch/mapthai
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
