@@ -58,7 +58,7 @@ plot(tha2[, c('adm2_pcode', 'adm1_pcode')])
 ```
 
 ### 2. Plot interactive plot using leaflet
-```{r, eval = FALSE}
+```{r eval=FALSE}
 library(leaflet)
 leaflet(tha2) %>%
   addProviderTiles(providers$CartoDB) %>%
@@ -80,9 +80,11 @@ ref_tha %>%
 ```
 
 ### 4. Join `sf` object with data and plot
-```{r, dpi=200}
+```{r dpi=200}
 tha1 %>%
+  # join with rice production data of Thailand
   left_join(rice_2562, by = c("adm1_th" = "location")) %>%
+  # plot production (tons), area plant (rai), and yield (kg/rai)
   select(production, area_plant, yield_plant) %>%
   plot()
 ```

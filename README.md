@@ -116,7 +116,9 @@ ref_tha %>%
 
 ``` r
 tha1 %>%
+  # join with rice production data of Thailand
   left_join(rice_2562, by = c("adm1_th" = "location")) %>%
+  # plot production (tons), area plant (rai), and yield (kg/rai)
   select(production, area_plant, yield_plant) %>%
   plot()
 ```
