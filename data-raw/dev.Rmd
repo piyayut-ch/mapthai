@@ -1,0 +1,22 @@
+```{r}
+# load prerequisites
+pkgs <- c(
+  "sf", "geojsonio", "readxl", "writexl", "tidyverse", 
+  "janitor", "leaflet", "here"
+)
+xfun::pkg_attach2(pkgs)
+setwd(here())
+```
+
+```{r}
+tha1_sim <- st_read("data-raw/geojson/th_adm1.geojson") %>% clean_names()
+tha2_sim <- st_read("data-raw/geojson/th_adm2.geojson") %>% clean_names()
+tha3_sim <- st_read("data-raw/geojson/th_adm3.geojson") %>% clean_names()
+```
+
+```{r}
+tha2_sim |>
+  filter(adm1_th == "บึงกาฬ") |>
+  st_drop_geometry() |>
+  arrange(adm2_pcode)
+```
