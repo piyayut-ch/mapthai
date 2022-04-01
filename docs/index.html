@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,25 +33,19 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">mapthai</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/piyayut-ch/mapthai/">
+  <a href="https://github.com/piyayut-ch/mapthai/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -67,77 +63,69 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
-<div id="mapthai" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#mapthai" class="anchor"></a>mapthai</h1></div>
-<p>An R package storing ligtweight geospatial polygon data of Thailand administrative level 1-3 including province (Changwat), district (Amphoe) and subdistrict (Tambon) in geojson and rda (<code>sf</code> class) format. Please see more details in <a href="https://piyayut-ch.github.io/mapthai/">package website</a></p>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>Thailand maps are downloaded from <a href="https://data.humdata.org/dataset/thailand-administrative-boundaries">UNOCHA</a><br>
-</li>
-<li>Source: Royal Thai Survey Department update 6 November 2019<br>
-</li>
-<li>Maps are simplified using <a href="https://mapshaper.org">mapshaper</a><br>
+<div class="section level1">
+<div class="page-header"><h1 id="mapthai">mapthai<a class="anchor" aria-label="anchor" href="#mapthai"></a>
+</h1></div>
+<p>An R package storing ligtweight geospatial polygon data of Thailand administrative level 1-3 including province (Changwat), district (Amphoe) and subdistrict (Tambon) in geojson and rda (<code>sf</code> class) format. Please see more details in <a href="https://piyayut-ch.github.io/mapthai/" class="external-link">package website</a></p>
+<p><strong>Notes:</strong><br>
+- Thailand maps are downloaded from <a href="https://data.humdata.org/dataset/thailand-administrative-boundaries" class="external-link">UNOCHA</a><br>
+- Source: Royal Thai Survey Department update 6 November 2019<br>
+- Maps are simplified using <a href="https://mapshaper.org" class="external-link">mapshaper</a><br>
 * Import Options : detect line intersections<br>
 * Simplification menu : check prevent shape removal<br>
-* Method : Visvalingam / effective area</li>
-</ul>
+* Method : Visvalingam / effective area</p>
 </div>
-<div id="แผนที่ไทย" class="section level1">
-<h1 class="hasAnchor">
-<a href="#%E0%B9%81%E0%B8%9C%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%84%E0%B8%97%E0%B8%A2" class="anchor"></a>แผนที่ไทย</h1>
-<p>R package ที่มีไฟล์แผนที่ขนาดเล็กของไทย เหมาะสำหรับการทำ data visualization มีไฟล์ทั้ง geojson และ rda (ในรูปแบบ class <code>sf</code>) โดยแผนที่ไทยมี 3 ระดับ ได้แก่ จังหวัด อำเภอ และตำบล ดูรายละเอียดเพิ่มเติมได้ที่ <a href="https://piyayut-ch.github.io/mapthai/">package website</a></p>
-<p><strong>หมายเหตุ:</strong></p>
-<ul>
-<li>แผนที่ไทยโหลดมาจาก <a href="https://data.humdata.org/dataset/thailand-administrative-boundaries">UNOCHA</a><br>
-</li>
-<li>แหล่งข้อมูล: กรมแผนที่ทหาร เมื่อวันที่ 6 พ.ย. 2562<br>
-</li>
-<li>ลดขนาดของแผนที่ (simplify) ด้วย webtool ที่ชื่อ <a href="https://mapshaper.org">mapshaper</a><br>
+<div class="section level1">
+<h1 id="แผนทไทย">แผนที่ไทย<a class="anchor" aria-label="anchor" href="#%E0%B9%81%E0%B8%9C%E0%B8%99%E0%B8%97%E0%B9%84%E0%B8%97%E0%B8%A2"></a>
+</h1>
+<p>R package ที่มีไฟล์แผนที่ขนาดเล็กของไทย เหมาะสำหรับการทำ data visualization มีไฟล์ทั้ง geojson และ rda (ในรูปแบบ class <code>sf</code>) โดยแผนที่ไทยมี 3 ระดับ ได้แก่ จังหวัด อำเภอ และตำบล ดูรายละเอียดเพิ่มเติมได้ที่ <a href="https://piyayut-ch.github.io/mapthai/" class="external-link">package website</a></p>
+<p><strong>หมายเหตุ:</strong><br>
+- แผนที่ไทยโหลดมาจาก <a href="https://data.humdata.org/dataset/thailand-administrative-boundaries" class="external-link">UNOCHA</a><br>
+- แหล่งข้อมูล: กรมแผนที่ทหาร เมื่อวันที่ 6 พ.ย. 2562<br>
+- ลดขนาดของแผนที่ (simplify) ด้วย webtool ที่ชื่อ <a href="https://mapshaper.org" class="external-link">mapshaper</a><br>
 โดยเลือกปรับแต่งค่าต่าง ๆ ดังนี้<br>
 * Import Options : detect line intersections<br>
 * Simplification menu : check prevent shape removal<br>
-* Method : Visvalingam / effective area</li>
-</ul>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of mapthai from <a href="https://github.com/piyayut-ch/mapthai">github repo</a> with:</p>
+* Method : Visvalingam / effective area</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the released version of mapthai from <a href="https://github.com/piyayut-ch/mapthai" class="external-link">github repo</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># remotes::install_github("piyayut-ch/mapthai")</span></code></pre></div>
 </div>
-<div id="example" class="section level2">
-<h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
-<div id="1-plot-map-using-plot-method-of-sf-class" class="section level3">
-<h3 class="hasAnchor">
-<a href="#1-plot-map-using-plot-method-of-sf-class" class="anchor"></a>1. Plot map using plot method of <code>sf</code> class</h3>
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
+<div class="section level3">
+<h3 id="plot-map-using-plot-method-of-sf-class">1. Plot map using plot method of <code>sf</code> class<a class="anchor" aria-label="anchor" href="#plot-map-using-plot-method-of-sf-class"></a>
+</h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">mapthai</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://piyayut-ch.github.io/mapthai" class="external-link">mapthai</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span>
 
 <span class="co"># basic example code</span>
-<span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">tha2</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'adm2_pcode'</span>, <span class="st">'adm1_pcode'</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> </code></pre></div>
+<span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">tha2</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'adm2_pcode'</span>, <span class="st">'adm1_pcode'</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> </code></pre></div>
 <p><img src="reference/figures/README-example-1.png" width="100%"></p>
 </div>
-<div id="2-plot-interactive-plot-using-leaflet" class="section level3">
-<h3 class="hasAnchor">
-<a href="#2-plot-interactive-plot-using-leaflet" class="anchor"></a>2. Plot interactive plot using leaflet</h3>
+<div class="section level3">
+<h3 id="plot-interactive-plot-using-leaflet">2. Plot interactive plot using leaflet<a class="anchor" aria-label="anchor" href="#plot-interactive-plot-using-leaflet"></a>
+</h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/leaflet/">leaflet</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span><span class="op">(</span><span class="va">tha2</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/addProviderTiles.html">addProviderTiles</a></span><span class="op">(</span><span class="va">providers</span><span class="op">$</span><span class="va">CartoDB</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addPolygons</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"grey"</span>, weight <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/leaflet/" class="external-link">leaflet</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html" class="external-link">leaflet</a></span><span class="op">(</span><span class="va">tha2</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/addProviderTiles.html" class="external-link">addProviderTiles</a></span><span class="op">(</span><span class="va">providers</span><span class="op">$</span><span class="va">CartoDB</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html" class="external-link">addPolygons</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"grey"</span>, weight <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="3-reference-table" class="section level3">
-<h3 class="hasAnchor">
-<a href="#3-reference-table" class="anchor"></a>3. Reference table</h3>
+<div class="section level3">
+<h3 id="reference-table">3. Reference table<a class="anchor" aria-label="anchor" href="#reference-table"></a>
+</h3>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/gt">gt</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com/" class="external-link">gt</a></span><span class="op">)</span>
 
-<span class="va">ref_tha</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">ref_tha</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt;   adm3_pcode    adm3_en     adm3_th adm2_pcode        adm2_en      adm2_th</span>
 <span class="co">#&gt; 1   TH420803       A Hi        อาฮี     TH4208         Tha Li       ท่าลี่</span>
 <span class="co">#&gt; 2   TH940102     A Noru    อาเนาะรู     TH9401 Mueang Pattani เมืองปัตตานี</span>
@@ -153,8 +141,8 @@
 <span class="co">#&gt; 5       TH55     Nan     น่าน</span>
 <span class="co">#&gt; 6       TH95    Yala     ยะลา</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ref_tha</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">adm2_pcode</span> <span class="op">==</span> <span class="st">"TH1015"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">ref_tha</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">adm2_pcode</span> <span class="op">==</span> <span class="st">"TH1015"</span><span class="op">)</span>
 <span class="co">#&gt;   adm3_pcode      adm3_en    adm3_th adm2_pcode   adm2_en adm2_th adm1_pcode</span>
 <span class="co">#&gt; 1   TH101503 Bang Yi Ruea บางยี่เรือ     TH1015 Thon Buri  ธนบุรี       TH10</span>
 <span class="co">#&gt; 2   TH101504     Bukkhalo     บุคคโล     TH1015 Thon Buri  ธนบุรี       TH10</span>
@@ -172,16 +160,16 @@
 <span class="co">#&gt; 6 Bangkok กรุงเทพมหานคร</span>
 <span class="co">#&gt; 7 Bangkok กรุงเทพมหานคร</span></code></pre></div>
 </div>
-<div id="4-join-sf-object-with-data-and-plot" class="section level3">
-<h3 class="hasAnchor">
-<a href="#4-join-sf-object-with-data-and-plot" class="anchor"></a>4. Join <code>sf</code> object with data and plot</h3>
+<div class="section level3">
+<h3 id="join-sf-object-with-data-and-plot">4. Join <code>sf</code> object with data and plot<a class="anchor" aria-label="anchor" href="#join-sf-object-with-data-and-plot"></a>
+</h3>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tha1</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="va">tha1</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span>
   <span class="co"># join with rice production data of Thailand</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">rice_2562</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"adm1_th"</span> <span class="op">=</span> <span class="st">"location"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">rice_2562</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"adm1_th"</span> <span class="op">=</span> <span class="st">"location"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span>
   <span class="co"># plot production (tons), area plant (rai), and yield (kg/rai)</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">production</span>, <span class="va">area_plant</span>, <span class="va">yield_plant</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html">plot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">production</span>, <span class="va">area_plant</span>, <span class="va">yield_plant</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="100%"></p>
 </div>
 </div>
@@ -191,36 +179,49 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/piyayut-ch/mapthai/">https://​github.com/​piyayut-ch/​mapthai/​</a>
-</li>
+<li><a href="https://github.com/piyayut-ch/mapthai/" class="external-link">Browse source code</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>Piyayut Chitchumnong <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/YOUR-ORCID-ID" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html#citation">Citing mapthai</a></li>
 </ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Piyayut Chitchumnong <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/YOUR-ORCID-ID" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+</ul>
+</div>
+
+
 
   </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Piyayut Chitchumnong.</p>
+  <p></p>
+<p>Developed by Piyayut Chitchumnong.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -228,6 +229,8 @@
 
   
 
+
+  
 
   </body>
 </html>
